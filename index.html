@@ -1,0 +1,96 @@
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">MAX</div>
+        <nav id="mobile">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="this.classList.toggle('active')">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    <div class="container">
+        hello
+    </div>
+    <button>Click Me</button>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, id?</p>
+    
+    <script>
+        $(document).ready(function(){
+    $(".hamburger").click(function(){
+        $("nav").toggle();
+        
+    })
+});
+    </script>
+   
+</body>
+</html> -->
+
+<!-- code countdown -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        #countdown {
+            font-size: 2em;
+            font-family: Arial, sans-serif;
+            color: cornflowerblue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown"></div>
+
+    <script>
+        // Set the date and time we're counting down to
+        const countdownDate = new Date("August 25, 2024 23:59:59").getTime();
+
+        // Update the countdown every second
+        const countdownFunction = setInterval(function() {
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            const distance = countdownDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s " + "❤️";
+
+            // If the countdown is finished, display some text
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
